@@ -28,9 +28,9 @@ export async function getServerSideProps() {
     trendingres,
     popularres
   ] = await Promise.all([
-    fetch('http://localhost:3000/api/posts'),
-    fetch('http://localhost:3000/api/trending'),
-    fetch('http://localhost:3000/api/popular')
+    fetch('https://a24-blog.vercel.app/api/posts'),
+    fetch('https://a24-blog.vercel.app/api/trending'),
+    fetch('https://a24-blog.vercel.app/api/popular')
   ])
 
   return {

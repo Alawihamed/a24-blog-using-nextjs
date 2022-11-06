@@ -57,7 +57,7 @@ export default postId
 export async function getServerSideProps(context) {
     const { params } = context;
     const { postId } = params;
-    const post = await fetch(`http://localhost:3000/api/posts/${postId}`);
+    const post = await fetch(`https://a24-blog.vercel.app/api/posts/${postId}`);
     const data = await post.json();
     if (data?.error) {
         return {
@@ -66,7 +66,7 @@ export async function getServerSideProps(context) {
             }
         }
     } else {
-        const related = await fetch('http://localhost:3000/api/posts');
+        const related = await fetch('https://a24-blog.vercel.app/api/posts');
         const relatedData = await related.json();
         const result = relatedData.filter((posts)=>posts.category === data?.category && posts.id !==data?.id )
         return {
